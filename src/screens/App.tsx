@@ -13,7 +13,6 @@ function Home() {
     
     useEffect(() => {
      getMovies().then((response: AxiosResponse<IProductsResponse>) => setMovies(response.data.products));
-    console.log(movies);
     }, [ ]);
   return (
     <S.MainContainer>

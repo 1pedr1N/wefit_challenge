@@ -8,13 +8,12 @@ import { CartContext } from "../context/cartContext";
 import CartBox from "../components/boxCart";
 
 function Cart() {
-  const [movies, setMovies] = useState<IProductProps[]>([]);
+  const [, setMovies] = useState<IProductProps[]>([]);
   const { cart } = useContext(CartContext);
   useEffect(() => {
     getMovies().then((response: AxiosResponse<{ products: IProductProps[] }>) =>
       setMovies(response.data.products)
     );
-    console.log(movies);
   }, []);
   function priceTotal() {
     let total = 0;
