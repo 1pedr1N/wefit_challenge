@@ -8,22 +8,19 @@ import MovieBox from "../components/boxMovie";
 import { CartContext } from "../context/cartContext";
 
 function Home() {
-   const [movies, setMovies] = useState<IProductProps[]>([]);
-   const { cart, addProduct } = useContext(CartContext);
-   function fixedPrice(price: number ) {
-    return price.toFixed(2);
-}
-
-  useEffect(() => {
-   getMovies().then((response: AxiosResponse<IProductsResponse[]>) => setMovies(response.data.products));
-  console.log(movies);
-  }, [ ]);
+     const [movies, setMovies] = useState<IProductProps[]>([]);
+     const { cart, addProduct } = useContext(CartContext);
+    
+    useEffect(() => {
+     getMovies().then((response: AxiosResponse<IProductsResponse>) => setMovies(response.data.products));
+    console.log(movies);
+    }, [ ]);
   return (
     <S.MainContainer>
     <TopBar amount={cart.length}/>
     <S.MovieDiv> 
     {movies.map((movie) => (  
-      <MovieBox img={movie.image} title={movie.title} price={fixedPrice(movie.price)} totalCart={cart.length} addCart={() => addProduct(movie)} 
+      <MovieBox img={movie.image} title={movie.title} price={(movie.price)} totalCart={cart.length} addCart={() => addProduct(movie)} 
       /> 
     ))}
     </S.MovieDiv>

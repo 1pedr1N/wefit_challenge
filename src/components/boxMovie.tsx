@@ -6,7 +6,7 @@ const MovieBox = ({ img, title, price, totalCart, addCart }: IMovie) => {
     <S.Box>
       <S.Image src={img} alt={title} />
       <S.Title>{title}</S.Title>
-      <S.Price>R$ {price}</S.Price>
+      <S.Price>R$ {(price).toFixed(2)}</S.Price>
       <S.Button onClick={addCart}>
         <S.IconDiv>
           <img src={CartIcon} /> {totalCart}{" "}
