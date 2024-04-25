@@ -2,6 +2,7 @@ import * as S from "../styles/loadingState"
 import TopBar from "../components/topBar";
 import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
+import Breadcrumb from "../components/breadChumpProps";
 
 function LoadingScreen() {
   const { cart } = useContext(CartContext);
@@ -9,7 +10,16 @@ function LoadingScreen() {
 
     <S.MainContainer>
     <TopBar amount={cart.length} />
-    <S.Spinner />
+    <Breadcrumb routes={[
+      {
+        path: "/",
+        name: "Negrito"
+      },
+      {
+        path: "/cart",
+        name: "adwadawd"
+      },
+    ]} />
     </S.MainContainer>
   );
 }

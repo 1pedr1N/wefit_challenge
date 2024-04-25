@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../screens/App';
 import NoFoundScreen from '../screens/NoFoundScreen';
 import Cart from '../screens/Cart';
-import OrderFineshed from '../screens/orderFineshed';
+import OrderFineshed from '../screens/OrderFineshed';
 import LoadingScreen from '../screens/LoadingState';
 
 const ProtectedRoute = ({ element: Component, ...rest }: {
